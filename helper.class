@@ -1,16 +1,59 @@
-public class Images
+public class HelloWorld 
+{
+	private String [] hWArray =
+	  {"Bonjour tout le monde","Hello World","Hallo Welt","Herro Word"};
+	private String desLanguage;
+	private String [] country =
+ 	{"French","English","German","Engrish"};
+ 
+	
+	public HelloWorld(String desLanguageValue)
 	{
-		public int ID { get; set; }
-    	//	A short description.
-		public string description { get; set; }
-    	//	When to start displaying this image.
-		public DateTime start { get; set; }
-    	//	When to stop displaying this image.
-		public DateTime finish { get; set; }
-    	//	Link to source.
-		public string link { get; set; }
-    	//	Which screen to display it on.
-		public int screen_no { get; set; }
-    	//	Is it a video or an image?
-		public bool is_video { get; set; }
+		desLanguage = desLanguageValue;
 	}
+	
+	public String toString()
+	{
+	  
+	  if (desLanguage.equals(country[0]))
+		  return hWArray [0];
+	  else if (desLanguage.equals(country[1]))
+		  return hWArray [1];
+	  else if (desLanguage.equals(country[2]))
+		  return hWArray [2];
+	  else if (desLanguage.equals(country[3]))
+		  return hWArray [3];
+	  else
+		  return "JOOOOONOOOOBBBBB";
+		  
+	     
+	}
+}
+public class HelloWorldConstructor 
+{
+	private HelloWorld theHelloWorld;
+	public HelloWorldConstructor(String desLang)
+	{
+		theHelloWorld = new HelloWorld(desLang);
+	}
+	public String toString()
+	{
+		return theHelloWorld.toString();
+	}
+}
+public class HelloWorldMain
+{
+	public static void main(String [] args)
+	{
+		try
+		{
+		HelloWorldConstructor tHWC = new HelloWorldConstructor(args [0]);
+		System.out.println(tHWC);
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			System.out.println("NOOOOOOB");
+		}
+		
+	}
+}

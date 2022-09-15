@@ -1,8 +1,191 @@
-<html>
-<head>
-<title> Welcome </title>
-</head>
-<body>
-<p> Hello Everybody, Welcome to our site </p>
-</body>
-</html>
+1. Basic structure
+
+First of all, we create the basic HTML structure:
+
+<div id="wrap">
+<div id="header"></div>
+<div id="nav"></div>
+<div id="main"></div>
+<div id="sidebar"></div>
+<div id="footer"></div>
+</div>
+
+After that, we put some content in the different sections:
+
+<div id="wrap">
+<div id="header"><h1>Document Heading</h1></div>
+<div id="nav">
+<ul>
+<li><a href="#">Option 1</a></li>
+<li><a href="#">Option 2</a></li>
+...
+</ul>
+</div>
+<div id="main">
+<h2>Column 1</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit...</p>
+</div>
+<div id="sidebar">
+<h2>Column 2</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit...</p>
+<ul>
+<li><a href="#">Link 1</a></li>
+<li><a href="#">Link 2</a></li>
+...
+</ul>
+</div>
+<div id="footer">
+<p>Footer</p>
+</div>
+</div>
+
+Now we have a completely unstyled HTML document which is structured in a way that lets us use CSS to control its layout.
+
+View step 1.
+
+2. Adjust the body and html elements
+To make the content reach the edges of the browser window, we set the margin and padding of the body and html elements to zero. We also specify colours for text and background.
+
+body,
+html {
+margin:0;
+padding:0;
+color:#000;
+background:#a7a09a;
+}
+View step 2.
+
+3. On to the main containers
+
+After that it’s time to give the content area a width and center it horizontally. We do that by specifying the width and margins of the main container, #wrap. We also give it a background colour to make it show up on the page.
+
+The method we use to center the content is based on the fact that when an element’s left and right margins are set to auto, they will share whatever is left when the element’s width has been subtracted from that of its container. In this case the width of #wrap will be subtracted from the width of the browser window.
+
+Note: for this method to work in Internet Explorer (version 6 and later only), the document must use a DOCTYPE that forces IE to use its standards mode. Please read Fix Your Site With the Right DOCTYPE! for more info.
+
+#wrap {
+width:750px;
+margin:0 auto;
+background:#99c;
+}
+In case you’re wondering why we’re not using the body element to control the width and centering of the layout, it is because doing so can cause unwanted side-effects in some versions of Internet Explorer.
+
+After that, we give the different sections of the document different background colours to make them show up.
+
+#header {
+background:#ddd;
+}
+#nav {
+background:#c99;
+}
+#main {
+background:#9c9;
+}
+#sidebar {
+background:#c9c;
+}
+#footer {
+background:#cc9;
+}
+View step 3.
+
+4. Place the columns side by side
+
+To make the two columns (#main and #sidebar) display side by side we float them, one to the left and the other to the right. We also specify the widths of the columns.
+
+#main {
+float:left;
+width:500px;
+background:#9c9;
+}
+#sidebar {
+float:right;
+width:250px;
+background:#c9c;
+}
+
+Note that the sum of the widths should be equal to the width given to #wrap in Step 3.
+This will make #sidebar appear to the right of #main, but the footer is not where it should be.
+
+View step 4.
+
+
+5. Push the footer down
+The footer doesn’t get pushed down to the bottom of the content because of the way float works. When you float an element, it is removed from the document flow and doesn’t push elements that follow it down. In this case #footer will start right below #sidebar.
+To avoid this we use the clear property to tell the footer that it can’t have any elements next to it.
+
+#footer {
+clear:both;
+background:#cc9;
+}
+View step 5.
+
+6. Fix the background colour
+Now we can see that the shorter column doesn’t continue all the way down to the footer. To make it look like it does, we use the same background colour for #sidebar and #wrap.
+
+#sidebar {
+float:right;
+width:250px;
+background:#99c;
+}
+Also, if you take a look at this step in Internet Explorer 6 you may notice that the background colour of the footer is pushing up beside the main content. That will be taken care of later.
+
+View step 6.
+If you don't know which column is going to be the tallest, and you want both columns to have different backgrounds and look like they are going all the way to the bottom, you need to use a workaround. There are several ways to achieve that effect:
+
+Faux Columns
+Creating Liquid Layouts with Negative Margins
+In search of the One True Layout
+7. Make the navigation bar horizontal
+
+#nav contains a regular unordered list of links. Since we don’t want it to look like an unordered list we restyle it.
+
+#nav ul {
+margin:0;
+padding:0;
+list-style:none;
+}
+#nav li {
+display:inline;
+margin:0;
+padding:0;
+}
+View step 7.
+
+8. Adjust margins and paddings, and make IE 6 cooperate
+Almost done. Time to adjust the margin and padding of some elements to make the layout a little less cramped.
+
+#header {
+padding:5px 10px;
+background:#ddd;
+}
+h1 {
+margin:0;
+}
+#nav {
+padding:5px 10px;
+background:#c99;
+}
+#main {
+float:left;
+width:480px;
+padding:10px;
+background:#9c9;
+}
+h2 {
+margin:0 0 1em;
+}
+#sidebar {
+float:right;
+width:230px;
+padding:10px;
+background:#99c;
+}
+#footer {
+clear:both;
+padding:5px 10px;
+background:#cc9;
+}
+#footer p {
+margin:0;
+}

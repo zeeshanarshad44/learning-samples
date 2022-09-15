@@ -1,16 +1,25 @@
-public class Images
-	{
-		public int ID { get; set; }
-    	//	A short description.
-		public string description { get; set; }
-    	//	When to start displaying this image.
-		public DateTime start { get; set; }
-    	//	When to stop displaying this image.
-		public DateTime finish { get; set; }
-    	//	Link to source.
-		public string link { get; set; }
-    	//	Which screen to display it on.
-		public int screen_no { get; set; }
-    	//	Is it a video or an image?
-		public bool is_video { get; set; }
+package java_lang_Object;
+
+import java.util.Objects;
+
+public class Person {
+	private String user1;
+	private int age;
+	private String user2;
+	private String user3;
+	@Override
+	public int hashCode() {
+		return Objects.hash(user1);
 	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return Objects.equals(user1, other.user1);
+	}
+}
