@@ -1,3 +1,8 @@
+# Java
+
+Copy the code here for java
+
+```
 // importing the FileReader class
 import java.io.FileReader;
 
@@ -19,8 +24,12 @@ class Main {
       System.out.println(array);
       output = calculate(['one thing','other thing'])
       result = calculate(['one thing','other thing'])
+```
 
-      
+### Java Sample Code 1
+
+```
+
 // Closes the reader
       input.close();
     }
@@ -29,8 +38,13 @@ class Main {
     }
   }
 }
+```
 
 
+### Java Sample Code 2
+
+
+```
 // importing the FileReader class
 import java.io.FileReader;
 
@@ -59,5 +73,5 @@ class Main {
     }
   }
 }
-
+```
 
