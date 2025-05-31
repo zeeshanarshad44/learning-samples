@@ -6,7 +6,6 @@
 // PERF: comments here
 // TEST: test comments here
 
-
 This is line one of file.
 hello
 hello
