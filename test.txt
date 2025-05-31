@@ -1,3 +1,12 @@
+// NOTE: comments here
+// TODO: comments here
+// WARNING: comments here
+// FIX: comments here
+// HACK: comments here
+// PERF: comments here
+// TEST: test comments here
+
+
 This is line one of file.
 hello
 hello

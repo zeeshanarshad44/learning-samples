@@ -448,7 +448,7 @@ $ ./target/release/rg --version
 0.1.3
 ```
 
-**NOTE:** In the past, ripgrep supported a `simd-accel` Cargo feature when
+**NOTE** In the past, ripgrep supported a `simd-accel` Cargo feature when
 using a Rust nightly compiler. This only benefited UTF-16 transcoding.
 Since it required unstable features, this build mode was prone to breakage.
 Because of that, support for it has been removed. If you want SIMD
