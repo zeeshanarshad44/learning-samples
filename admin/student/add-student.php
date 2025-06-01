@@ -10,11 +10,14 @@ else{
 
 if(isset($_POST['submit']))
 {
+  $regid=intval($_GET['id']);
 $studentname=$_POST['studentname'];
 $photo=$_FILES["photo"]["name"];
+
+
 $cgpa=$_POST['cgpa'];
 move_uploaded_file($_FILES["photo"]["tmp_name"],"studentphoto/".$_FILES["photo"]["name"]);
-$ret=mysqli_query($con,"update students set studentName='$studentname',studentPhoto='$photo',cgpa='$cgpa'  where StudentRegno='".$_SESSION['login']."'");
+$ret=mysqli_query($con,"update students set studentName='$studentname',studentPhoto='$photo',cgpa='$cgpa'  where StudentRegno='$regid'");
 if($ret)
 {
 $_SESSION['msg']="Student Record updated Successfully !!";
@@ -63,7 +66,10 @@ else
                           Student Registration
                         </div>
 <font color="green" align="center"><?php echo htmlentities($_SESSION['msg']);?><?php echo htmlentities($_SESSION['msg']="");?></font>
-<?php $sql=mysqli_query($con,"select * from students where StudentRegno='".$_SESSION['login']."'");
+<?php 
+$regid=intval($_GET['id']);
+
+$sql=mysqli_query($con,"select * from students where StudentRegno='$regid'");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 { ?>
@@ -95,14 +101,14 @@ while($row=mysqli_fetch_array($sql))
 
 
 <div class="form-group">
-    <label for="Pincode">Student Photo  </label>
+    <label for="studentphoto">Student Photo  </label>
    <?php if($row['studentPhoto']==""){ ?>
-   <img src="studentphoto/noimage.png" width="200" height="200"><?php } else {?>
-   <img src="studentphoto/<?php echo htmlentities($row['studentPhoto']);?>" width="200" height="200">
+   <img src="../studentphoto/noimage.png" width="200" height="200"><?php } else {?>
+   <img src="../studentphoto/<?php echo htmlentities($row['studentPhoto']);?>" width="200" height="200">
    <?php } ?>
   </div>
 <div class="form-group">
-    <label for="Pincode">Upload New Photo  </label>
+    <label for="studentphoto">Upload New Photo  </label>
     <input type="file" class="form-control" id="photo" name="photo"  value="<?php echo htmlentities($row['studentPhoto']);?>" />
   </div>
 
