@@ -1,1 +1,1 @@
-remove-order.php
+remove-order

@@ -1,1 +1,1 @@
-edit-order.php
+edit-order
